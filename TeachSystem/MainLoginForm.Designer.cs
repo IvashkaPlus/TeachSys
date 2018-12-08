@@ -37,6 +37,7 @@
             this.loginBox = new System.Windows.Forms.TextBox();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.loginStatusLable = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,12 +121,24 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // loginStatusLable
+            // 
+            this.loginStatusLable.AutoSize = true;
+            this.loginStatusLable.ForeColor = System.Drawing.Color.Firebrick;
+            this.loginStatusLable.Location = new System.Drawing.Point(97, 181);
+            this.loginStatusLable.Name = "loginStatusLable";
+            this.loginStatusLable.Size = new System.Drawing.Size(154, 13);
+            this.loginStatusLable.TabIndex = 8;
+            this.loginStatusLable.Text = "Неверный логин или пароль!";
+            this.loginStatusLable.Visible = false;
+            // 
             // MainLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(406, 292);
+            this.Controls.Add(this.loginStatusLable);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.loginBox);
@@ -154,6 +167,7 @@
         private System.Windows.Forms.TextBox loginBox;
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label loginStatusLable;
     }
 }
 
