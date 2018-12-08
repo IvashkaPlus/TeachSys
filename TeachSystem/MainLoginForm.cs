@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace TeachSystem
 {
-    public partial class Form1 : Form
+    public partial class MainLoginForm : Form
     {
-        public Form1()
+        public MainLoginForm()
         {
             InitializeComponent();
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
