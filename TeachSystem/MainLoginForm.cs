@@ -21,13 +21,16 @@ namespace TeachSystem
         {
             try { 
                 SqlConnectionStringBuilder sqlConnection = new SqlConnectionStringBuilder();
-                sqlConnection.DataSource = "IVA-NOTEBOOK\\SQLEXPRESS";
-                sqlConnection.UserID = "sa";
-                sqlConnection.Password = "root";
+
+                sqlConnection.DataSource     = "IVA-NOTEBOOK\\SQLEXPRESS";
+                sqlConnection.UserID         = "sa";
+                sqlConnection.Password       = "root";
                 sqlConnection.InitialCatalog = "TeachSystemDB";
+
                 SqlConnection dbConnection = new SqlConnection(sqlConnection.ConnectionString);
                 string sqlCommand = "SELECT * FROM teachers WHERE teacher_id = \'" + loginBox.Text
-                    + "\' AND t_password = \'" + passwordBox.Text + "\'";
+                                    + "\' AND t_password = \'" + passwordBox.Text + "\'";
+
                 dbConnection.Open();
                 SqlCommand sql = new SqlCommand(sqlCommand, dbConnection);
                 if (sql.ExecuteScalar() != null)
@@ -37,6 +40,7 @@ namespace TeachSystem
                     loginStatusLable.Visible = true;
                     Properties.Settings.Default.logined = true;
                     Properties.Settings.Default.teacher_id = loginBox.Text;
+                    dbConnection.Close();
                     this.Close();
                 }
                 else

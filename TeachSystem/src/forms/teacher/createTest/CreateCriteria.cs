@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace TeachSystem
 {
-    public partial class TeacherMainForm : Form
+    public partial class CreateCriteria : Form
     {
-        public TeacherMainForm()
+        public CreateCriteria()
         {
             InitializeComponent();
         }

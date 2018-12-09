@@ -83,7 +83,7 @@
             // 
             // loginButton
             // 
-            this.loginButton.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.loginButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.loginButton.Location = new System.Drawing.Point(287, 171);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(52, 31);

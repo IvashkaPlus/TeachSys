@@ -65,11 +65,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Settings.cs" />
-    <Compile Include="TeacherMainForm.cs">
+    <Compile Include="src\classes\Answer.cs" />
+    <Compile Include="src\forms\teacher\createTest\CreateTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TeacherMainForm.Designer.cs">
+    <Compile Include="src\forms\teacher\createTest\CreateTest.Designer.cs">
+      <DependentUpon>CreateTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\forms\teacher\createTest\CreateQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\teacher\createTest\CreateQuestion.Designer.cs">
+      <DependentUpon>CreateQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\forms\teacher\createTest\CreateAnswer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\teacher\createTest\CreateAnswer.Designer.cs">
+      <DependentUpon>CreateAnswer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\forms\teacher\createTest\CreateCriteria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\teacher\createTest\CreateCriteria.Designer.cs">
+      <DependentUpon>CreateCriteria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\classes\GradeCriteria.cs" />
+    <Compile Include="src\classes\Test.cs" />
+    <Compile Include="src\classes\Question.cs" />
+    <Compile Include="src\classes\Teacher.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="src\forms\teacher\TeacherMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\teacher\TeacherMainForm.Designer.cs">
       <DependentUpon>TeacherMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainLoginForm.cs">
@@ -80,6 +109,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="src\forms\teacher\createTest\CreateCriteria.resx">
+      <DependentUpon>CreateCriteria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\forms\teacher\createTest\CreateTest.resx">
+      <DependentUpon>CreateTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\forms\teacher\createTest\CreateQuestion.resx">
+      <DependentUpon>CreateQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\forms\teacher\createTest\CreateAnswer.resx">
+      <DependentUpon>CreateAnswer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainLoginForm.resx">
       <DependentUpon>MainLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,7 +129,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="TeacherMainForm.resx">
+    <EmbeddedResource Include="src\forms\teacher\TeacherMainForm.resx">
       <DependentUpon>TeacherMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
@@ -125,6 +166,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\defaultUserImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\forms\student\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
