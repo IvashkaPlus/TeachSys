@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TeachSystem
 {
-    class Teacher
+    public class Teacher
     {
         public string teacherId;
         public string tFirstName;

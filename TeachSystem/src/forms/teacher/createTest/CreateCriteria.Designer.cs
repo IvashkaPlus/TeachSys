@@ -70,6 +70,7 @@
             this.createQuestionButton.TabIndex = 24;
             this.createQuestionButton.Text = "Создать";
             this.createQuestionButton.UseVisualStyleBackColor = true;
+            this.createQuestionButton.Click += new System.EventHandler(this.createQuestionButton_Click);
             // 
             // label1
             // 

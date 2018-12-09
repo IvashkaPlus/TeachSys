@@ -76,6 +76,7 @@
             this.createAnswerButton.TabIndex = 20;
             this.createAnswerButton.Text = "Создать";
             this.createAnswerButton.UseVisualStyleBackColor = true;
+            this.createAnswerButton.Click += new System.EventHandler(this.createAnswerButton_Click);
             // 
             // isRightCheckBox
             // 

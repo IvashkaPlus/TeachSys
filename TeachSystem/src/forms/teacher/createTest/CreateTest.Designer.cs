@@ -34,7 +34,7 @@
             this.titLable = new System.Windows.Forms.Label();
             this.titleLable = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.subjectList = new System.Windows.Forms.ComboBox();
             this.gradeCriteriaLable = new System.Windows.Forms.Label();
             this.addGradeCriteriaButton = new System.Windows.Forms.Button();
             this.addQuestionButton = new System.Windows.Forms.Button();
@@ -51,6 +51,7 @@
             this.createTestButton.TabIndex = 0;
             this.createTestButton.Text = "Создать";
             this.createTestButton.UseVisualStyleBackColor = true;
+            this.createTestButton.Click += new System.EventHandler(this.createTestButton_Click);
             // 
             // titBox
             // 
@@ -91,14 +92,14 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Предмет";
             // 
-            // comboBox1
+            // subjectList
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(162, 98);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(220, 29);
-            this.comboBox1.TabIndex = 10;
+            this.subjectList.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.subjectList.FormattingEnabled = true;
+            this.subjectList.Location = new System.Drawing.Point(162, 98);
+            this.subjectList.Name = "subjectList";
+            this.subjectList.Size = new System.Drawing.Size(220, 29);
+            this.subjectList.TabIndex = 10;
             // 
             // gradeCriteriaLable
             // 
@@ -120,6 +121,7 @@
             this.addGradeCriteriaButton.TabIndex = 12;
             this.addGradeCriteriaButton.Text = "Добавить...";
             this.addGradeCriteriaButton.UseVisualStyleBackColor = true;
+            this.addGradeCriteriaButton.Click += new System.EventHandler(this.addGradeCriteriaButton_Click);
             // 
             // addQuestionButton
             // 
@@ -131,6 +133,7 @@
             this.addQuestionButton.TabIndex = 14;
             this.addQuestionButton.Text = "Добавить вопрос";
             this.addQuestionButton.UseVisualStyleBackColor = true;
+            this.addQuestionButton.Click += new System.EventHandler(this.addQuestionButton_Click);
             // 
             // listViewQuest
             // 
@@ -149,7 +152,7 @@
             this.Controls.Add(this.addQuestionButton);
             this.Controls.Add(this.addGradeCriteriaButton);
             this.Controls.Add(this.gradeCriteriaLable);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.subjectList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.titleLable);
             this.Controls.Add(this.titBox);
@@ -170,7 +173,7 @@
         private System.Windows.Forms.Label titLable;
         private System.Windows.Forms.Label titleLable;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox subjectList;
         private System.Windows.Forms.Label gradeCriteriaLable;
         private System.Windows.Forms.Button addGradeCriteriaButton;
         private System.Windows.Forms.Button addQuestionButton;

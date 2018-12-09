@@ -56,6 +56,7 @@
             this.addAnswerButton.TabIndex = 20;
             this.addAnswerButton.Text = "Добавить ответ";
             this.addAnswerButton.UseVisualStyleBackColor = true;
+            this.addAnswerButton.Click += new System.EventHandler(this.addAnswerButton_Click);
             // 
             // titleLable
             // 
@@ -97,6 +98,7 @@
             this.createQuestionButton.TabIndex = 16;
             this.createQuestionButton.Text = "Создать";
             this.createQuestionButton.UseVisualStyleBackColor = true;
+            this.createQuestionButton.Click += new System.EventHandler(this.createQuestionButton_Click);
             // 
             // answerListLable
             // 

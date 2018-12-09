@@ -81,7 +81,20 @@ namespace TeachSystem
 
         private void addTestButton_Click(object sender, EventArgs e)
         {
+            Test tempTest           = new Test();
+            CreateTest createTest   = new CreateTest();
+            createTest.subjects     = subjectsList;
+            createTest.teacherSubId = currentTeacher.subId;
+            if (createTest.ShowDialog(this) == DialogResult.OK)
+            {
+                tempTest = createTest.test;
+            }
+        }
 
+        private void aboutProgramButton_Click(object sender, EventArgs e)
+        {
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.ShowDialog();
         }
     }
 }

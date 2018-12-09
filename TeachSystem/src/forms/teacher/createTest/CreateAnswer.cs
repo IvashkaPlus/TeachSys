@@ -11,9 +11,24 @@ namespace TeachSystem
 {
     public partial class CreateAnswer : Form
     {
+        public Answer answer;
+
         public CreateAnswer()
         {
             InitializeComponent();
         }
+
+        private void createAnswerButton_Click(object sender, EventArgs e)
+        {
+            if (titBox.Text != "")
+            {
+                answer = new Answer(titBox.Text, isRightCheckBox.Checked);
+            }
+            else
+            {
+                MessageBox.Show("Введите корректное значение!");
+            }
+        }
+
     }
 }

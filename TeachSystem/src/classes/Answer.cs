@@ -5,11 +5,17 @@ using System.Text;
 
 namespace TeachSystem
 {
-    class Answer
+    public class Answer
     {
-        public int answerId;
+        //public int answerId;
         public string text;
-        public int questionId;
+        //public int questionId;
         public bool isRight = false;
+
+        public Answer(string inputText, bool checker)
+        {
+            isRight = checker;
+            text = inputText;
+        }
     }
 }

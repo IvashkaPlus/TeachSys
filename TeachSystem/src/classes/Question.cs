@@ -5,11 +5,15 @@ using System.Text;
 
 namespace TeachSystem
 {
-    class Question
+    public class Question
     {
-        public int questionId;
+        //public int questionId;
         public string text;
-        public int testId;
-        public List <Answer> answers;
+        //public int testId;
+        public List<Answer> answers;
+        public Question(string inputText)
+        {
+            text = inputText;
+        }
     }
 }

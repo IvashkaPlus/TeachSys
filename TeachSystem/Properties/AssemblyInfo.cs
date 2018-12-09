@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
 [assembly: AssemblyTitle("TeachSystem")]
-[assembly: AssemblyDescription("Система для тестирования студентов")]
+[assembly: AssemblyDescription("Система для тестирования студентов. \n\n Разработали \n\n Плюснин Иван и Шуняков Дмитрий. \n\n #HeheEksdee")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("YSTU")]
 [assembly: AssemblyProduct("TeachSystem")]

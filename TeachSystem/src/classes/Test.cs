@@ -5,9 +5,9 @@ using System.Text;
 
 namespace TeachSystem
 {
-    class Test
+    public class Test
     {
-        public int testId;
+        //public int testId;
         public List<Question> questions;
         public int teacherId;
         public string release_date;
