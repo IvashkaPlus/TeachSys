@@ -47,7 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\testIco.ico</ApplicationIcon>
+    <ApplicationIcon>testIco.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>TeachSystem.Program</StartupObject>
@@ -182,6 +182,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\forms\student\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="testIco.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
