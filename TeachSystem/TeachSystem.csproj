@@ -66,21 +66,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\StringEditor.cs" />
     <Compile Include="src\classes\Answer.cs" />
+    <Compile Include="src\classes\Student.cs" />
     <Compile Include="src\forms\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\forms\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\forms\student\StudentMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\student\StudentMainForm.Designer.cs">
+      <DependentUpon>StudentMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\forms\teacher\createGroup\CreateGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\forms\teacher\createGroup\CreateGroup.Designer.cs" />
+    <Compile Include="src\forms\teacher\createGroup\CreateGroup.Designer.cs">
+      <DependentUpon>CreateGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\forms\teacher\createStudent\CreateStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\forms\teacher\createStudent\CreateStudent.Designer.cs" />
+    <Compile Include="src\forms\teacher\createStudent\CreateStudent.Designer.cs">
+      <DependentUpon>CreateStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\forms\teacher\createTech\CreateTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +144,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="src\forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\forms\student\StudentMainForm.resx">
+      <DependentUpon>StudentMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\forms\teacher\createTech\CreateTeacher.resx">
       <DependentUpon>CreateTeacher.cs</DependentUpon>
@@ -197,9 +212,7 @@
   <ItemGroup>
     <None Include="Resources\defaultUserImage.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\forms\student\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="testIco.ico" />
   </ItemGroup>

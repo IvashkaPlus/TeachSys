@@ -38,10 +38,10 @@
             this.updateTestListButton = new System.Windows.Forms.Button();
             this.addTestButton = new System.Windows.Forms.Button();
             this.listViewTests = new System.Windows.Forms.ListView();
-            this.columnTestTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnTestCreator = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnReleaseDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnTestAviable = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTestName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTeacher = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colReleaseDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTestAviable = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.addUserFuncGroup = new System.Windows.Forms.GroupBox();
             this.addTeacherButton = new System.Windows.Forms.Button();
             this.addTeachGroupButton = new System.Windows.Forms.Button();
@@ -141,24 +141,39 @@
             // listViewTests
             // 
             this.listViewTests.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnTestTitle,
-            this.columnTestCreator,
-            this.columnReleaseDate,
-            this.columnTestAviable});
+            this.colTestName,
+            this.colTeacher,
+            this.colReleaseDate,
+            this.colTestAviable});
+            this.listViewTests.FullRowSelect = true;
             this.listViewTests.GridLines = true;
             this.listViewTests.Location = new System.Drawing.Point(346, 50);
+            this.listViewTests.MultiSelect = false;
             this.listViewTests.Name = "listViewTests";
             this.listViewTests.Size = new System.Drawing.Size(414, 326);
             this.listViewTests.TabIndex = 9;
             this.listViewTests.UseCompatibleStateImageBehavior = false;
+            this.listViewTests.View = System.Windows.Forms.View.Details;
             // 
-            // columnReleaseDate
+            // colTestName
             // 
-            this.columnReleaseDate.DisplayIndex = 3;
+            this.colTestName.Text = "Название";
+            this.colTestName.Width = 139;
             // 
-            // columnTestAviable
+            // colTeacher
             // 
-            this.columnTestAviable.DisplayIndex = 2;
+            this.colTeacher.Text = "Преподаватель";
+            this.colTeacher.Width = 98;
+            // 
+            // colReleaseDate
+            // 
+            this.colReleaseDate.Text = "Дата создания";
+            this.colReleaseDate.Width = 93;
+            // 
+            // colTestAviable
+            // 
+            this.colTestAviable.Text = "Доступность";
+            this.colTestAviable.Width = 79;
             // 
             // addUserFuncGroup
             // 
@@ -306,10 +321,10 @@
         private System.Windows.Forms.Button updateTestListButton;
         private System.Windows.Forms.Button addTestButton;
         private System.Windows.Forms.ListView listViewTests;
-        private System.Windows.Forms.ColumnHeader columnTestTitle;
-        private System.Windows.Forms.ColumnHeader columnTestCreator;
-        private System.Windows.Forms.ColumnHeader columnReleaseDate;
-        private System.Windows.Forms.ColumnHeader columnTestAviable;
+        private System.Windows.Forms.ColumnHeader colTestName;
+        private System.Windows.Forms.ColumnHeader colTeacher;
+        private System.Windows.Forms.ColumnHeader colReleaseDate;
+        private System.Windows.Forms.ColumnHeader colTestAviable;
         private System.Windows.Forms.GroupBox addUserFuncGroup;
         private System.Windows.Forms.Button addTeacherButton;
         private System.Windows.Forms.Button addTeachGroupButton;

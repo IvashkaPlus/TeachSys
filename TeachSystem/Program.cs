@@ -18,6 +18,9 @@ namespace TeachSystem
             if (Properties.Settings.Default.logined && Properties.Settings.Default.teacher_id != null)
             {
                 Application.Run(new TeacherMainForm());
+            } else if (Properties.Settings.Default.logined && Properties.Settings.Default.student_id != null)
+            {
+                Application.Run(new StudentMainForm());
             }
         }
     }

@@ -7,6 +7,7 @@ namespace TeachSystem
 {
     public class Test
     {
+        public int testId;
         public string title;
         public List<Question> questions;
         public string teacherId;

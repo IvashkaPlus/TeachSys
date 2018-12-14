@@ -88,8 +88,12 @@ namespace TeachSystem
 
         private void updateTestListButton_Click(object sender, EventArgs e)
         {
+            listViewTests.Items.Clear();
             dbConnection.Open();
-            string testListFinder = "SELECT * FROM tests";
+            string testListFinder = "select test.title, teach.last_name, test.release_date, test.availability " +
+                "from TeachSystemDB.dbo.tests test INNER JOIN TeachSystemDB.dbo.teachers teach " +
+                "on test.teach_id = teach.teacher_id";
+
             SqlCommand sql = new SqlCommand(testListFinder, dbConnection);
             if (sql.ExecuteScalar() == null)
             {
@@ -98,6 +102,16 @@ namespace TeachSystem
             else
             {
                 SqlDataReader dataReader = sql.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    StringBuilder rDate = new StringBuilder(dataReader["release_date"].ToString(), 0, 10, 10);
+                    ListViewItem tempItem = new ListViewItem(dataReader["title"].ToString());
+                    tempItem.SubItems.Add(dataReader["last_name"].ToString());
+                    tempItem.SubItems.Add(rDate.ToString());
+                    tempItem.SubItems.Add(dataReader["availability"].ToString());
+                    listViewTests.Items.Add(tempItem);
+                }
+                dataReader.Close();
             }
             dbConnection.Close();
         }
@@ -127,6 +141,22 @@ namespace TeachSystem
                 sql.Parameters.AddWithValue("@subId", tempTest.subjectId);
                 sql.ExecuteNonQuery();
 
+                string getGroup = "SELECT t_group_id FROM teach_groups";
+                sql = new SqlCommand(getGroup, dbConnection);
+                SqlDataReader groupReader = sql.ExecuteReader();
+                int groupCount = 0;
+                while (groupReader.Read())
+                    groupCount++;
+                groupReader.Close();
+
+                for (int i = 1; i < groupCount+1; i++)
+                {
+                    string setAccessList = "INSERT INTO list_test_access VALUES("
+                                            + i + ", (SELECT MAX(test_id) FROM tests), 1)";
+                    sql = new SqlCommand(setAccessList, dbConnection);
+                    sql.ExecuteNonQuery();
+                }
+                
                 string criteriaCreation = "INSERT INTO grade_criteria (for5, for4, for3, test_c_id) " +
                                           "VALUES (@f5, @f4, @f3, (SELECT MAX(test_id) FROM tests))";
                 sql = new SqlCommand(criteriaCreation, dbConnection);
@@ -158,6 +188,7 @@ namespace TeachSystem
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка создания теста: " + ex);
+                dbConnection.Close();
             }
             
             

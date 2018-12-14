@@ -40,14 +40,34 @@ namespace TeachSystem
                     loginStatusLable.Visible = true;
                     Properties.Settings.Default.logined = true;
                     Properties.Settings.Default.teacher_id = loginBox.Text;
+                    Properties.Settings.Default.student_id = null;
                     dbConnection.Close();
                     this.Close();
                 }
                 else
                 {
-                    loginStatusLable.ForeColor = Color.Firebrick;
-                    loginStatusLable.Text = "Неверный логин или пароль";
-                    loginStatusLable.Visible = true;
+                    sqlCommand = "SELECT * FROM students WHERE student_id = \'" + loginBox.Text
+                                    + "\' AND s_password = \'" + passwordBox.Text + "\'";
+                    sql = new SqlCommand(sqlCommand, dbConnection);
+
+                    if (sql.ExecuteScalar() != null)
+                    {
+                        loginStatusLable.ForeColor = Color.DarkGreen;
+                        loginStatusLable.Text = "Вход выполнен";
+                        loginStatusLable.Visible = true;
+                        Properties.Settings.Default.logined = true;
+                        Properties.Settings.Default.teacher_id = null;
+                        Properties.Settings.Default.student_id = loginBox.Text;
+                        dbConnection.Close();
+                        this.Close();
+                    }
+                    else
+                    {
+                        loginStatusLable.ForeColor = Color.Firebrick;
+                        loginStatusLable.Text = "Неверный логин или пароль";
+                        loginStatusLable.Visible = true;
+                        dbConnection.Close();
+                    }
                 }
             }
             catch

@@ -46,5 +46,17 @@ namespace TeachSystem.Properties {
                 this["teacher_id"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string student_id {
+            get {
+                return ((string)(this["student_id"]));
+            }
+            set {
+                this["student_id"] = value;
+            }
+        }
     }
 }

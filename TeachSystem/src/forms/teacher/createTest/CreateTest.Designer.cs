@@ -108,7 +108,7 @@
             this.subjectList.FormattingEnabled = true;
             this.subjectList.Location = new System.Drawing.Point(162, 93);
             this.subjectList.Name = "subjectList";
-            this.subjectList.Size = new System.Drawing.Size(220, 29);
+            this.subjectList.Size = new System.Drawing.Size(230, 29);
             this.subjectList.TabIndex = 10;
             // 
             // gradeCriteriaLable
