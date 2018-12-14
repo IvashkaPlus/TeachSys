@@ -23,6 +23,7 @@ namespace TeachSystem
             if (titBox.Text != "")
             {
                 answer = new Answer(titBox.Text, isRightCheckBox.Checked);
+                this.Close();
             }
             else
             {

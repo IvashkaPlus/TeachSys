@@ -39,18 +39,18 @@
             // titleLable
             // 
             this.titleLable.AutoSize = true;
-            this.titleLable.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLable.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
             this.titleLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.titleLable.Location = new System.Drawing.Point(17, 11);
+            this.titleLable.Location = new System.Drawing.Point(20, 15);
             this.titleLable.Name = "titleLable";
-            this.titleLable.Size = new System.Drawing.Size(228, 37);
+            this.titleLable.Size = new System.Drawing.Size(179, 30);
             this.titleLable.TabIndex = 23;
             this.titleLable.Text = "Создание ответа";
             // 
             // titBox
             // 
             this.titBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titBox.Location = new System.Drawing.Point(24, 89);
+            this.titBox.Location = new System.Drawing.Point(25, 89);
             this.titBox.Multiline = true;
             this.titBox.Name = "titBox";
             this.titBox.Size = new System.Drawing.Size(363, 74);
@@ -60,7 +60,7 @@
             // 
             this.titLable.AutoSize = true;
             this.titLable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titLable.Location = new System.Drawing.Point(20, 65);
+            this.titLable.Location = new System.Drawing.Point(21, 65);
             this.titLable.Name = "titLable";
             this.titLable.Size = new System.Drawing.Size(99, 21);
             this.titLable.TabIndex = 21;
@@ -70,7 +70,7 @@
             // 
             this.createAnswerButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.createAnswerButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.createAnswerButton.Location = new System.Drawing.Point(308, 241);
+            this.createAnswerButton.Location = new System.Drawing.Point(309, 169);
             this.createAnswerButton.Name = "createAnswerButton";
             this.createAnswerButton.Size = new System.Drawing.Size(79, 30);
             this.createAnswerButton.TabIndex = 20;
@@ -82,7 +82,7 @@
             // 
             this.isRightCheckBox.AutoSize = true;
             this.isRightCheckBox.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.isRightCheckBox.Location = new System.Drawing.Point(24, 191);
+            this.isRightCheckBox.Location = new System.Drawing.Point(25, 169);
             this.isRightCheckBox.Name = "isRightCheckBox";
             this.isRightCheckBox.Size = new System.Drawing.Size(162, 25);
             this.isRightCheckBox.TabIndex = 24;
@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 291);
+            this.ClientSize = new System.Drawing.Size(404, 211);
             this.Controls.Add(this.isRightCheckBox);
             this.Controls.Add(this.titleLable);
             this.Controls.Add(this.titBox);

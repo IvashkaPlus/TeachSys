@@ -183,6 +183,7 @@
             this.addTeacherButton.TabIndex = 13;
             this.addTeacherButton.Text = "Добавить преподавателя";
             this.addTeacherButton.UseVisualStyleBackColor = true;
+            this.addTeacherButton.Click += new System.EventHandler(this.addTeacherButton_Click);
             // 
             // addTeachGroupButton
             // 
@@ -193,6 +194,7 @@
             this.addTeachGroupButton.TabIndex = 12;
             this.addTeachGroupButton.Text = "Добавить группу";
             this.addTeachGroupButton.UseVisualStyleBackColor = true;
+            this.addTeachGroupButton.Click += new System.EventHandler(this.addTeachGroupButton_Click);
             // 
             // addStudentButton
             // 
@@ -203,6 +205,7 @@
             this.addStudentButton.TabIndex = 11;
             this.addStudentButton.Text = "Добавить студента";
             this.addStudentButton.UseVisualStyleBackColor = true;
+            this.addStudentButton.Click += new System.EventHandler(this.addStudentButton_Click);
             // 
             // aboutProgramButton
             // 
@@ -264,7 +267,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(784, 450);
+            this.ClientSize = new System.Drawing.Size(784, 421);
             this.Controls.Add(this.createReportFuncGroup);
             this.Controls.Add(this.aboutProgramButton);
             this.Controls.Add(this.addUserFuncGroup);
@@ -279,6 +282,8 @@
             this.Controls.Add(this.teachFNLable);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(800, 460);
+            this.MinimumSize = new System.Drawing.Size(800, 460);
             this.Name = "TeacherMainForm";
             this.Text = "TeachSystem";
             this.Load += new System.EventHandler(this.TeacherMainForm_Load);

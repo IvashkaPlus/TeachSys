@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace TeachSystem
 {
@@ -81,20 +82,39 @@ namespace TeachSystem
 
         private void addTestButton_Click(object sender, EventArgs e)
         {
-            Test tempTest           = new Test();
-            CreateTest createTest   = new CreateTest();
-            createTest.subjects     = subjectsList;
-            createTest.teacherSubId = currentTeacher.subId;
-            if (createTest.ShowDialog(this) == DialogResult.OK)
-            {
-                tempTest = createTest.test;
-            }
+            Test tempTest = new Test();
+            CreateTest createTestForm = null;
+            createTestForm = new CreateTest();
+            createTestForm.subjects = subjectsList;
+            createTestForm.teacherSubId = currentTeacher.subId;
+            createTestForm.ShowDialog();
         }
 
         private void aboutProgramButton_Click(object sender, EventArgs e)
         {
             AboutBox aboutBox = new AboutBox();
             aboutBox.ShowDialog();
+        }
+
+        private void addTeacherButton_Click(object sender, EventArgs e)
+        {
+            CreateTeacher createTeacher = new CreateTeacher(subjectsList);
+            createTeacher.ShowDialog();
+            createTeacher.Dispose();
+        }
+
+        private void addStudentButton_Click(object sender, EventArgs e)
+        {
+            CreateStudent createStud = new CreateStudent();
+            createStud.ShowDialog();
+            createStud.Dispose();
+        }
+
+        private void addTeachGroupButton_Click(object sender, EventArgs e)
+        {
+            CreateGroup group = new CreateGroup();
+            group.ShowDialog();
+            group.Dispose();
         }
     }
 }

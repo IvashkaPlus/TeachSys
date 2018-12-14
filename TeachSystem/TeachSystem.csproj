@@ -73,6 +73,20 @@
     <Compile Include="src\forms\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\forms\teacher\createGroup\CreateGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\teacher\createGroup\CreateGroup.Designer.cs" />
+    <Compile Include="src\forms\teacher\createStudent\CreateStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\teacher\createStudent\CreateStudent.Designer.cs" />
+    <Compile Include="src\forms\teacher\createTech\CreateTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\teacher\createTech\CreateTeacher.Designer.cs">
+      <DependentUpon>CreateTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\forms\teacher\createTest\CreateTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +132,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="src\forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\forms\teacher\createTech\CreateTeacher.resx">
+      <DependentUpon>CreateTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\forms\teacher\createTest\CreateCriteria.resx">
       <DependentUpon>CreateCriteria.cs</DependentUpon>

@@ -137,7 +137,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(406, 292);
+            this.ClientSize = new System.Drawing.Size(409, 291);
             this.Controls.Add(this.loginStatusLable);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.passwordBox);
@@ -149,6 +149,8 @@
             this.Controls.Add(this.titleLable);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(425, 330);
+            this.MinimumSize = new System.Drawing.Size(425, 330);
             this.Name = "MainLoginForm";
             this.Text = "TeachSystem - Вход";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
