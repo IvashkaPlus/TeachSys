@@ -10,9 +10,9 @@ namespace TeachSystem
         //public int answerId;
         public string text;
         //public int questionId;
-        public bool isRight = false;
+        public int isRight = 0;
 
-        public Answer(string inputText, bool checker)
+        public Answer(string inputText, int checker)
         {
             isRight = checker;
             text = inputText;

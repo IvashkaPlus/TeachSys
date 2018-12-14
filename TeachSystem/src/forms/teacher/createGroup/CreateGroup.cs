@@ -51,7 +51,7 @@ namespace TeachSystem
                 MessageBox.Show("Группа добавлена");
                 this.Close();
             }
-            catch (SqlException ex)
+            catch
             {
 
             }

@@ -42,13 +42,13 @@
             this.columnNum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnText = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listViewAnswer = new System.Windows.Forms.ListView();
+            this.columnANum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnAnsText = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnIsRight = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.addAnswerButton = new System.Windows.Forms.Button();
             this.answerListLable = new System.Windows.Forms.Label();
             this.questionLable = new System.Windows.Forms.Label();
             this.criteriaInfo = new System.Windows.Forms.Label();
-            this.columnANum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnAnsText = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnIsRight = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // createTestButton
@@ -103,9 +103,10 @@
             // 
             // subjectList
             // 
+            this.subjectList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.subjectList.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.subjectList.FormattingEnabled = true;
-            this.subjectList.Location = new System.Drawing.Point(162, 98);
+            this.subjectList.Location = new System.Drawing.Point(162, 93);
             this.subjectList.Name = "subjectList";
             this.subjectList.Size = new System.Drawing.Size(220, 29);
             this.subjectList.TabIndex = 10;
@@ -122,7 +123,6 @@
             // 
             // addGradeCriteriaButton
             // 
-            this.addGradeCriteriaButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.addGradeCriteriaButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addGradeCriteriaButton.Location = new System.Drawing.Point(162, 133);
             this.addGradeCriteriaButton.Name = "addGradeCriteriaButton";
@@ -184,6 +184,20 @@
             this.listViewAnswer.UseCompatibleStateImageBehavior = false;
             this.listViewAnswer.View = System.Windows.Forms.View.Details;
             // 
+            // columnANum
+            // 
+            this.columnANum.Text = "Номер";
+            // 
+            // columnAnsText
+            // 
+            this.columnAnsText.Text = "Ответ";
+            this.columnAnsText.Width = 200;
+            // 
+            // columnIsRight
+            // 
+            this.columnIsRight.Text = "Правильность";
+            this.columnIsRight.Width = 96;
+            // 
             // addAnswerButton
             // 
             this.addAnswerButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -223,20 +237,6 @@
             this.criteriaInfo.Size = new System.Drawing.Size(129, 13);
             this.criteriaInfo.TabIndex = 26;
             this.criteriaInfo.Text = "Критерии не добавлены";
-            // 
-            // columnANum
-            // 
-            this.columnANum.Text = "Номер";
-            // 
-            // columnAnsText
-            // 
-            this.columnAnsText.Text = "Ответ";
-            this.columnAnsText.Width = 200;
-            // 
-            // columnIsRight
-            // 
-            this.columnIsRight.Text = "Правильность";
-            this.columnIsRight.Width = 96;
             // 
             // CreateTest
             // 

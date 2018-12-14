@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace TeachSystem
 {
@@ -15,13 +16,14 @@ namespace TeachSystem
         public Dictionary<int, string> subjects = new Dictionary<int, string>();
         public int teacherSubId;
 
-        public CreateTest()
+        public CreateTest(Dictionary<int, string> subList)
         {
             InitializeComponent();
-            //subjects = createTestForm.subjects;
-            foreach (object sub in subjects)
-                subjectList.Items.Add(sub.ToString());
+            subjects = subList;
+            foreach (KeyValuePair<int, string> subInfo in subjects)
+                subjectList.Items.Add(subInfo.Value);
             test.questions = new List<Question>();
+            subjectList.SelectedIndex = 0;
         }
 
         private void addGradeCriteriaButton_Click(object sender, EventArgs e)
@@ -29,13 +31,36 @@ namespace TeachSystem
             CreateCriteria createCriteria = new CreateCriteria();
             if(createCriteria.ShowDialog(this) == DialogResult.OK)
             {
-                 test.criteria = createCriteria.criteria;
+                test.criteria = createCriteria.criteria;
+                criteriaInfo.Text = "На оценку 5: " + test.criteria.for5.ToString() 
+                                    + "%; На оценку 4: " + test.criteria.for4.ToString() 
+                                    + "%; На оценку 3: " + test.criteria.for3.ToString() + "%";
             }
         }
 
         private void createTestButton_Click(object sender, EventArgs e)
         {
+            test.title = titBox.Text;
+            SqlConnectionStringBuilder sqlConnection;
+            SqlConnection dbConnection;
+            sqlConnection = new SqlConnectionStringBuilder();
+            sqlConnection.DataSource = "IVA-NOTEBOOK\\SQLEXPRESS";
+            sqlConnection.UserID = "sa";
+            sqlConnection.Password = "root";
+            sqlConnection.InitialCatalog = "TeachSystemDB";
+            dbConnection = new SqlConnection(sqlConnection.ConnectionString);
+            int tempSubId = -1;
+            string getSubjectId = "SELECT subject_id FROM subjects WHERE title = \'" 
+                                + subjectList.Text.ToString() + "\'";
 
+            dbConnection.Open();
+            SqlCommand sql = new SqlCommand(getSubjectId, dbConnection);
+            SqlDataReader dataReader = sql.ExecuteReader();
+            dataReader.Read();
+            tempSubId = Convert.ToInt32(dataReader["subject_id"]);
+            dbConnection.Close();
+            test.subjectId = tempSubId;
+            this.Close();
         }
 
         private void addQuestionButton_Click(object sender, EventArgs e)
@@ -66,7 +91,7 @@ namespace TeachSystem
                     test.questions[selected[0]].answers.Add(answerForm.answer);
                     ListViewItem tempItem = new ListViewItem((listViewAnswer.Items.Count + 1).ToString());
                     tempItem.SubItems.Add(answerForm.answer.text);
-                    if (answerForm.answer.isRight)
+                    if (answerForm.answer.isRight == 1)
                     {
                         tempItem.SubItems.Add("+");
                     }
@@ -84,11 +109,6 @@ namespace TeachSystem
            
         }
 
-        private void listViewQuest_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void listViewQuest_SelectedIndexChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             listViewAnswer.Items.Clear();
@@ -102,7 +122,7 @@ namespace TeachSystem
             {
                 ListViewItem tempItem = new ListViewItem((listViewAnswer.Items.Count + 1).ToString());
                 tempItem.SubItems.Add(an.text);
-                if (an.isRight)
+                if (an.isRight == 1)
                 {
                     tempItem.SubItems.Add("+");
                 }

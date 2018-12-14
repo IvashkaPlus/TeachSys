@@ -267,7 +267,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(784, 421);
+            this.ClientSize = new System.Drawing.Size(784, 431);
             this.Controls.Add(this.createReportFuncGroup);
             this.Controls.Add(this.aboutProgramButton);
             this.Controls.Add(this.addUserFuncGroup);
@@ -282,8 +282,8 @@
             this.Controls.Add(this.teachFNLable);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(800, 460);
-            this.MinimumSize = new System.Drawing.Size(800, 460);
+            this.MaximumSize = new System.Drawing.Size(800, 470);
+            this.MinimumSize = new System.Drawing.Size(800, 470);
             this.Name = "TeacherMainForm";
             this.Text = "TeachSystem";
             this.Load += new System.EventHandler(this.TeacherMainForm_Load);
