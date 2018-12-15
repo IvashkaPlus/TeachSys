@@ -66,6 +66,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\forms\student\Testing\TestResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\student\Testing\TestResultForm.Designer.cs">
+      <DependentUpon>TestResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\forms\student\Testing\TestingPlatform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\student\Testing\TestingPlatform.Designer.cs">
+      <DependentUpon>TestingPlatform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\forms\student\Testing\TestInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\student\Testing\TestInfoForm.Designer.cs">
+      <DependentUpon>TestInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\StringEditor.cs" />
     <Compile Include="src\classes\Answer.cs" />
     <Compile Include="src\classes\Student.cs" />
@@ -147,6 +165,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\forms\student\StudentMainForm.resx">
       <DependentUpon>StudentMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\forms\student\Testing\TestResultForm.resx">
+      <DependentUpon>TestResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\forms\student\Testing\TestingPlatform.resx">
+      <DependentUpon>TestingPlatform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\forms\student\Testing\TestInfoForm.resx">
+      <DependentUpon>TestInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\forms\teacher\createTech\CreateTeacher.resx">
       <DependentUpon>CreateTeacher.cs</DependentUpon>

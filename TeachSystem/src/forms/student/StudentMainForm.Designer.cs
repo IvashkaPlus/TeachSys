@@ -57,9 +57,9 @@
             this.createReportFuncGroup.Controls.Add(this.getTeacherListButton);
             this.createReportFuncGroup.Controls.Add(this.getStudentListButton);
             this.createReportFuncGroup.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.createReportFuncGroup.Location = new System.Drawing.Point(30, 293);
+            this.createReportFuncGroup.Location = new System.Drawing.Point(30, 154);
             this.createReportFuncGroup.Name = "createReportFuncGroup";
-            this.createReportFuncGroup.Size = new System.Drawing.Size(289, 115);
+            this.createReportFuncGroup.Size = new System.Drawing.Size(289, 254);
             this.createReportFuncGroup.TabIndex = 24;
             this.createReportFuncGroup.TabStop = false;
             this.createReportFuncGroup.Text = "Отчеты";

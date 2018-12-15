@@ -79,7 +79,7 @@ namespace TeachSystem
                 sql = new SqlCommand(getQuestions, dbConnection);
                 reader = sql.ExecuteReader();
                 while (reader.Read())
-                { 
+                {
                     string qText = StringEditor.SpaceDeliting(reader["q_text"].ToString());
                     choosedTest.questions.Add(new Question(qText, Convert.ToInt32(reader["question_id"])));
                 }
@@ -114,10 +114,65 @@ namespace TeachSystem
                 reader.Read();
                 choosedTest.criteria = new GradeCriteria(Convert.ToInt32(reader["for5"]), Convert.ToInt32(reader["for4"]), Convert.ToInt32(reader["for3"]));
                 reader.Close();
-                dbConnection.Close();
 
+                string getSubjectId = "SELECT title FROM subjects WHERE subject_id = "
+                                + choosedTest.subjectId;
+                sql = new SqlCommand(getSubjectId, dbConnection);
+                reader = sql.ExecuteReader();
+                reader.Read();
+                string subTitle = StringEditor.SpaceDeliting(reader["title"].ToString());
+                reader.Close();
+                dbConnection.Close();
+                TestInfoForm testInfo = new TestInfoForm(choosedTest, subTitle);
+                if (testInfo.ShowDialog() == DialogResult.OK)
+                {
+                    int resultScore = 0;
+                    int resultGrade;
+                    for (int i = 0; i < choosedTest.questions.Count; i++)
+                    {
+                        TestingPlatform testing = new TestingPlatform(choosedTest, i);
+                        testing.titleLable.Text += choosedTest.title;
+                        testing.questionLable.Text += i+1;
+                        testing.questText.Text = choosedTest.questions[i].text;
+                        if (testing.ShowDialog() == DialogResult.OK)
+                        {
+                            resultScore += testing.score;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Тестирование сброшено");
+                            return;
+                        }
+                    }
+                    double percent = Convert.ToDouble(resultScore) / Convert.ToDouble(choosedTest.questions.Count) * 100;
+                    if (percent >= choosedTest.criteria.for5)
+                    {
+                        resultGrade = 5;
+                    }
+                    else if (percent >= choosedTest.criteria.for4)
+                    {
+                        resultGrade = 4;
+                    }
+                    else if (percent >= choosedTest.criteria.for3)
+                    {
+                        resultGrade = 3;
+                    }
+                    else
+                    {
+                        resultGrade = 2;
+                    }
+                    TestResultForm testResult = new TestResultForm(choosedTest, subTitle, resultGrade, resultScore);
+                    testResult.ShowDialog();
+                    string setNewResult = "INSERT INTO reports VALUES(@stud_id, @test_id, @grade)";
+                    sql = new SqlCommand(setNewResult, dbConnection);
+                    sql.Parameters.AddWithValue("@stud_id", currentStudent.studentId);
+                    sql.Parameters.AddWithValue("@test_id", choosedTest.testId);
+                    sql.Parameters.AddWithValue("@grade", resultGrade);
+                    dbConnection.Open();
+                    sql.ExecuteNonQuery();
+                    dbConnection.Close();
+                }
             }
-            
         }
 
         private void StudentMainForm_Load(object sender, EventArgs e)
