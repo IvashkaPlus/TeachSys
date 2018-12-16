@@ -215,5 +215,28 @@ namespace TeachSystem
             studGroupLable.Text = groups[currentStudent.sGroupId];
             groups.Clear();
         }
+
+        private void createReportButton_Click(object sender, EventArgs e)
+        {
+            List<ReportStud> reportsList = new List<ReportStud>();
+            string creatingStudentReport = "SELECT test.title, stud.last_name, rep.grade " +
+                "FROM tests test " +
+                "JOIN reports rep ON rep.l_test_id = test.test_id " +
+                "JOIN students stud ON rep.r_student_id = stud.student_id " +
+                "WHERE s_group_id = \'" + currentStudent.sGroupId + "\'";
+            SqlCommand sql = new SqlCommand(creatingStudentReport, dbConnection);
+            dbConnection.Open();
+            SqlDataReader dataReader = sql.ExecuteReader();
+            while (dataReader.Read())
+            {
+                string lastName = StringEditor.SpaceDeliting(dataReader["last_name"].ToString());
+                string testTitle = StringEditor.SpaceDeliting(dataReader["title"].ToString());
+                reportsList.Add(new ReportStud(lastName, testTitle, Convert.ToInt32(dataReader["grade"])));
+            }
+            Report_stud report_StudForm = new Report_stud(reportsList);
+            report_StudForm.ShowDialog();
+            dataReader.Close();
+            dbConnection.Close();
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace TeachSystem
             int delIndex = 0;
             for (int i = 0; i < tempName.Length; i++)
             {
-                char tru = tempName[10];
+                char tru = tempName[i];
                 if (tempName[i].Equals(' '))
                 {
                     checkerSpace++;

@@ -49,8 +49,6 @@
             this.aboutProgramButton = new System.Windows.Forms.Button();
             this.createReportFuncGroup = new System.Windows.Forms.GroupBox();
             this.createReportButton = new System.Windows.Forms.Button();
-            this.getTeacherListButton = new System.Windows.Forms.Button();
-            this.getStudentListButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.userImageBox)).BeginInit();
             this.addUserFuncGroup.SuspendLayout();
             this.createReportFuncGroup.SuspendLayout();
@@ -182,7 +180,7 @@
             this.addUserFuncGroup.Controls.Add(this.addTeachGroupButton);
             this.addUserFuncGroup.Controls.Add(this.addStudentButton);
             this.addUserFuncGroup.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.addUserFuncGroup.Location = new System.Drawing.Point(30, 159);
+            this.addUserFuncGroup.Location = new System.Drawing.Point(30, 160);
             this.addUserFuncGroup.Name = "addUserFuncGroup";
             this.addUserFuncGroup.Size = new System.Drawing.Size(289, 115);
             this.addUserFuncGroup.TabIndex = 10;
@@ -237,12 +235,10 @@
             // 
             this.createReportFuncGroup.BackColor = System.Drawing.Color.MediumTurquoise;
             this.createReportFuncGroup.Controls.Add(this.createReportButton);
-            this.createReportFuncGroup.Controls.Add(this.getTeacherListButton);
-            this.createReportFuncGroup.Controls.Add(this.getStudentListButton);
             this.createReportFuncGroup.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.createReportFuncGroup.Location = new System.Drawing.Point(30, 297);
             this.createReportFuncGroup.Name = "createReportFuncGroup";
-            this.createReportFuncGroup.Size = new System.Drawing.Size(289, 115);
+            this.createReportFuncGroup.Size = new System.Drawing.Size(290, 115);
             this.createReportFuncGroup.TabIndex = 14;
             this.createReportFuncGroup.TabStop = false;
             this.createReportFuncGroup.Text = "Отчеты";
@@ -250,32 +246,13 @@
             // createReportButton
             // 
             this.createReportButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.createReportButton.Location = new System.Drawing.Point(7, 69);
+            this.createReportButton.Location = new System.Drawing.Point(75, 50);
             this.createReportButton.Name = "createReportButton";
             this.createReportButton.Size = new System.Drawing.Size(133, 29);
             this.createReportButton.TabIndex = 13;
             this.createReportButton.Text = "Создание отчета";
             this.createReportButton.UseVisualStyleBackColor = true;
-            // 
-            // getTeacherListButton
-            // 
-            this.getTeacherListButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.getTeacherListButton.Location = new System.Drawing.Point(146, 41);
-            this.getTeacherListButton.Name = "getTeacherListButton";
-            this.getTeacherListButton.Size = new System.Drawing.Size(133, 48);
-            this.getTeacherListButton.TabIndex = 12;
-            this.getTeacherListButton.Text = "Список преподавателей";
-            this.getTeacherListButton.UseVisualStyleBackColor = true;
-            // 
-            // getStudentListButton
-            // 
-            this.getStudentListButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.getStudentListButton.Location = new System.Drawing.Point(7, 33);
-            this.getStudentListButton.Name = "getStudentListButton";
-            this.getStudentListButton.Size = new System.Drawing.Size(133, 30);
-            this.getStudentListButton.TabIndex = 11;
-            this.getStudentListButton.Text = "Список студентов";
-            this.getStudentListButton.UseVisualStyleBackColor = true;
+            this.createReportButton.Click += new System.EventHandler(this.createReportButton_Click);
             // 
             // TeacherMainForm
             // 
@@ -332,7 +309,5 @@
         private System.Windows.Forms.Button aboutProgramButton;
         private System.Windows.Forms.GroupBox createReportFuncGroup;
         private System.Windows.Forms.Button createReportButton;
-        private System.Windows.Forms.Button getTeacherListButton;
-        private System.Windows.Forms.Button getStudentListButton;
     }
 }

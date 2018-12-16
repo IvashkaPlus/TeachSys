@@ -221,5 +221,31 @@ namespace TeachSystem
             group.ShowDialog();
             group.Dispose();
         }
+
+        private void createReportButton_Click(object sender, EventArgs e)
+        {
+            string reportQuery = "SELECT sub.title, tg.name,  ROUND(AVG(rep.grade),1) as avgGrade " +
+                "FROM reports rep " +
+                "JOIN tests test ON test.test_id = rep.l_test_id " +
+                "JOIN subjects sub ON test.sub_id = sub.subject_id " +
+                "JOIN students stud ON stud.student_id = rep.r_student_id " +
+                "JOIN teach_groups tg ON tg.t_group_id = stud.s_group_id " +
+                "GROUP BY sub.title, tg.name";
+            List<ReportTeach> reportList = new List<ReportTeach>();
+            SqlCommand sql = new SqlCommand(reportQuery, dbConnection);
+            dbConnection.Open();
+            SqlDataReader dataReader = sql.ExecuteReader();
+            while (dataReader.Read())
+            {
+                string subTitle  = StringEditor.SpaceDeliting(dataReader["title"].ToString());
+                string groupName = StringEditor.SpaceDeliting(dataReader["name"].ToString());
+                reportList.Add(new ReportTeach(subTitle, groupName, Convert.ToDouble(dataReader["avgGrade"])));
+            }
+            Report_teach report_TeachForm = new Report_teach(reportList, subjectsList);
+            report_TeachForm.ShowDialog();
+            dataReader.Close();
+            dbConnection.Close();
+        }
+
     }
 }

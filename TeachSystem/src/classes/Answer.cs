@@ -7,9 +7,7 @@ namespace TeachSystem
 {
     public class Answer
     {
-        //public int answerId;
         public string text;
-        //public int questionId;
         public int isRight = 0;
 
         public Answer(string inputText, int checker)
