@@ -18,6 +18,7 @@ namespace TeachSystem
         SqlConnection dbConnection;
         Teacher currentTeacher;
         public Dictionary<int, string> subjectsList = new Dictionary<int, string>();
+        List<int> testIds = new List<int>();
         public TeacherMainForm()
         {
             InitializeComponent();
@@ -85,12 +86,11 @@ namespace TeachSystem
             dataReader.Close();
             dbConnection.Close();
         }
-
         private void updateTestListButton_Click(object sender, EventArgs e)
         {
             listViewTests.Items.Clear();
             dbConnection.Open();
-            string testListFinder = "select test.title, teach.last_name, test.release_date, test.availability " +
+            string testListFinder = "select test.title, teach.last_name, test.release_date, test.test_id " +
                 "from TeachSystemDB.dbo.tests test INNER JOIN TeachSystemDB.dbo.teachers teach " +
                 "on test.teach_id = teach.teacher_id";
 
@@ -108,19 +108,20 @@ namespace TeachSystem
                     ListViewItem tempItem = new ListViewItem(dataReader["title"].ToString());
                     tempItem.SubItems.Add(dataReader["last_name"].ToString());
                     tempItem.SubItems.Add(rDate.ToString());
-                    tempItem.SubItems.Add(dataReader["availability"].ToString());
                     listViewTests.Items.Add(tempItem);
+                    testIds.Add(Convert.ToInt32(dataReader["test_id"].ToString()));
                 }
                 dataReader.Close();
             }
             dbConnection.Close();
         }
-
         private void addTestButton_Click(object sender, EventArgs e)
         {
             Test tempTest = new Test();
             CreateTest createTestForm = null;
             createTestForm = new CreateTest(subjectsList);
+            Dictionary<int, string> groups = new Dictionary<int, string>();
+            List<string> studentIds = new List<string>();
             createTestForm.ShowDialog();
             tempTest = createTestForm.test;
             tempTest.teacherId = currentTeacher.teacherId;
@@ -131,31 +132,15 @@ namespace TeachSystem
             try
             {
                 dbConnection.Open();
-                string testCreation = "INSERT INTO tests (title, release_date, availability, teach_id, sub_id)" +
-                                    " VALUES (@tit, @rel_date, @avail, @tId, @subId)";
-                SqlCommand sql = new SqlCommand(testCreation, dbConnection);
+                SqlCommand sql;
+                string testCreation = "INSERT INTO tests (title, release_date, teach_id, sub_id)" +
+                                    " VALUES (@tit, @rel_date, @tId, @subId)";
+                sql = new SqlCommand(testCreation, dbConnection);
                 sql.Parameters.AddWithValue("@tit", tempTest.title);
                 sql.Parameters.AddWithValue("@rel_date", tempTest.release_date);
-                sql.Parameters.AddWithValue("@avail", 1);
                 sql.Parameters.AddWithValue("@tId", tempTest.teacherId);
                 sql.Parameters.AddWithValue("@subId", tempTest.subjectId);
                 sql.ExecuteNonQuery();
-
-                string getGroup = "SELECT t_group_id FROM teach_groups";
-                sql = new SqlCommand(getGroup, dbConnection);
-                SqlDataReader groupReader = sql.ExecuteReader();
-                int groupCount = 0;
-                while (groupReader.Read())
-                    groupCount++;
-                groupReader.Close();
-
-                for (int i = 1; i < groupCount+1; i++)
-                {
-                    string setAccessList = "INSERT INTO list_test_access VALUES("
-                                            + i + ", (SELECT MAX(test_id) FROM tests), 1)";
-                    sql = new SqlCommand(setAccessList, dbConnection);
-                    sql.ExecuteNonQuery();
-                }
                 
                 string criteriaCreation = "INSERT INTO grade_criteria (for5, for4, for3, test_c_id) " +
                                           "VALUES (@f5, @f4, @f3, (SELECT MAX(test_id) FROM tests))";
@@ -182,6 +167,36 @@ namespace TeachSystem
                         sql.ExecuteNonQuery();
                     }
                 }
+                string getGroup = "SELECT * FROM teach_groups";
+                sql = new SqlCommand(getGroup, dbConnection);
+                SqlDataReader groupReader = sql.ExecuteReader();
+                while (groupReader.Read())
+                {
+                    string tempGroupName = StringEditor.SpaceDeliting(groupReader["name"].ToString());
+                    groups.Add(Convert.ToInt32(groupReader["t_group_id"]), tempGroupName);
+                }
+                groupReader.Close();
+                foreach (KeyValuePair<int, string> pair in groups)
+                {
+                    int tempGroupId = pair.Key;
+                    studentIds.Clear();
+                    string getStudents = "select student_id " +
+                                         "from students " +
+                                         "where s_group_id = " + tempGroupId;
+                    sql = new SqlCommand(getStudents, dbConnection);
+                    SqlDataReader studentReader = sql.ExecuteReader();
+                    while (studentReader.Read())
+                        studentIds.Add(StringEditor.SpaceDeliting(studentReader["student_id"].ToString()));
+                    studentReader.Close();
+                    foreach (string stud in studentIds)
+                    {
+                        string updateAccess = "INSERT INTO list_test_access (l_test_id, test_status, l_stud_id) VALUES((SELECT MAX(test_id) FROM tests), @status, @studId)";
+                        sql = new SqlCommand(updateAccess, dbConnection);
+                        sql.Parameters.AddWithValue("@status", false);
+                        sql.Parameters.AddWithValue("@studId", stud);
+                        sql.ExecuteNonQuery();
+                    }
+                }
                 dbConnection.Close();
                 MessageBox.Show("Тест успешно добавлен");
             }
@@ -193,14 +208,12 @@ namespace TeachSystem
             
             
         }
-
         private void aboutProgramButton_Click(object sender, EventArgs e)
         {
             AboutBox aboutBox = new AboutBox();
             aboutBox.ShowDialog();
             aboutBox.Dispose();
         }
-
         private void addTeacherButton_Click(object sender, EventArgs e)
         {
             CreateTeacher createTeacher = new CreateTeacher(subjectsList);
@@ -247,5 +260,16 @@ namespace TeachSystem
             dbConnection.Close();
         }
 
+        private void appointTestButton_Click(object sender, EventArgs e)
+        {
+            ListView.SelectedIndexCollection selected = listViewTests.SelectedIndices;
+            if(selected.Count == 0)
+            {
+                return;
+            }
+            AppointTestForm appoint = new AppointTestForm(testIds[selected[0]]);
+            appoint.ShowDialog();
+            appoint.Dispose();
+        }
     }
 }

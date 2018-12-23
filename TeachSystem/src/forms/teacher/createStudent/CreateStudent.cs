@@ -65,6 +65,22 @@ namespace TeachSystem
             {
                 dbConnection.Open();
                 sql.ExecuteNonQuery();
+                List<int> testList = new List<int>(); ;
+                string createTestAccList = "SELECT test_id FROM tests";
+                sql = new SqlCommand(createTestAccList, dbConnection);
+                SqlDataReader testReader = sql.ExecuteReader();
+                while (testReader.Read())
+                    testList.Add(Convert.ToInt32(testReader["test_id"]));
+                foreach(int test in testList)
+                {
+                    createTestAccList = "INSERT INTO list_test_access (l_test_id, test_status, l_stud_id) VALUES(@test_id, @status, @studId)";
+                    sql = new SqlCommand(createTestAccList, dbConnection);
+                    sql.Parameters.AddWithValue("@status", false);
+                    sql.Parameters.AddWithValue("@studId", StudentId);
+                    sql.Parameters.AddWithValue("@testId", test);
+                    sql.ExecuteNonQuery();
+                }
+
                 MessageBox.Show("Студент успешно добавлен");
                 this.Close();
             }

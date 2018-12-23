@@ -37,7 +37,7 @@ namespace TeachSystem
             reportView.Rows.Clear();
             foreach(ReportStud rep in reports)
                 if(rep.testTitle == tempTestTitle)
-                    reportView.Rows.Add(rep.lastName, rep.testTitle, rep.grade);
+                    reportView.Rows.Add(rep.testTitle, rep.lastName, rep.grade);
         }
 
         private void closeReportForm_Click(object sender, EventArgs e)
@@ -48,10 +48,31 @@ namespace TeachSystem
 
         private void printReport_PrintPage(object sender, PrintPageEventArgs e)
         {
-            Bitmap bmp = new Bitmap(reportView.Size.Width + 10, reportView.Size.Height + 10);
-            reportView.DrawToBitmap(bmp, reportView.Bounds);
-            e.Graphics.DrawImage(bmp, 0, 0);
+            int x = 20;
+            int y = 20;
+            string reportName = "Отчет по тесту - " + testTitleBox.Text;
+            e.Graphics.DrawString(reportName, reportView.Font, new SolidBrush(Color.Black), new Point(x, y));
+            y += 30;
+            for (int i = 0; i < reportView.ColumnCount; i++)
+            {
+                e.Graphics.DrawRectangle(new Pen(Color.Black), x, y, reportView.Columns[i].Width, 21);
+                e.Graphics.DrawString(reportView.Columns[i].HeaderText, reportView.Font, new SolidBrush(Color.Black), new Point(x, y));
+                x += reportView.Columns[i].Width;
+            }
+            y += 21;
+            for (int i = 0; i < reportView.RowCount - 1; i++)
+            {
+                x = 20;
+                for (int j = 0; j < reportView.ColumnCount; j++)
+                {
+                    e.Graphics.DrawRectangle(new Pen(Color.Black), x, y, reportView[j, i].Size.Width, reportView[j, i].Size.Height);
+                    e.Graphics.DrawString(reportView[j, i].Value.ToString(), reportView.Font, new SolidBrush(Color.Black), new Point(x, y));
+                    x += reportView[j, i].Size.Width;
+                }
+                y += reportView[i, 0].Size.Height;
+            }
         }
+    
 
         private void printReportButton_Click(object sender, EventArgs e)
         {

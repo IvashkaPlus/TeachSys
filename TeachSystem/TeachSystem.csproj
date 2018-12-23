@@ -93,6 +93,12 @@
     <Compile Include="src\forms\student\Testing\TestInfoForm.Designer.cs">
       <DependentUpon>TestInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\forms\teacher\appointTest\AppointTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\forms\teacher\appointTest\AppointTestForm.Designer.cs">
+      <DependentUpon>AppointTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\forms\teacher\createReport\GraphicForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     <EmbeddedResource Include="src\forms\student\Testing\TestInfoForm.resx">
       <DependentUpon>TestInfoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\forms\teacher\appointTest\AppointTestForm.resx">
+      <DependentUpon>AppointTestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\forms\teacher\createReport\GraphicForm.resx">
       <DependentUpon>GraphicForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +280,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\falseIco.ico" />
+    <None Include="Resources\trueIco.ico" />
     <Content Include="testIco.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

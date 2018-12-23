@@ -32,20 +32,22 @@ namespace TeachSystem
         {
             listViewTests.Items.Clear();
             dbConnection.Open();
-            string testListFinder = "select DISTINCT test.title, teach.last_name, test.release_date, acc.test_status " +
+            string testListFinder = "select DISTINCT test.title, teach.last_name, acc.dead_line_date " +
                 "from tests test JOIN teachers teach on test.teach_id = teach.teacher_id " +
                 "JOIN list_test_access acc on test.test_id = acc.l_test_id " +
-                "where acc.l_group_id  = "  +  currentStudent.sGroupId;
+                "where acc.l_stud_id  = \'" + currentStudent.studentId + "\'";
 
             SqlCommand sql = new SqlCommand(testListFinder, dbConnection);
             SqlDataReader dataReader = sql.ExecuteReader();
+            if (dataReader.RecordsAffected == -1){
+                return;
+            }
             while (dataReader.Read())
             {
-                StringBuilder rDate = new StringBuilder(dataReader["release_date"].ToString(), 0, 10, 10);
+                StringBuilder rDate = new StringBuilder(dataReader["dead_line_date"].ToString(), 0, 10, 10);
                 ListViewItem tempItem = new ListViewItem(dataReader["title"].ToString());
                 tempItem.SubItems.Add(dataReader["last_name"].ToString());
                 tempItem.SubItems.Add(rDate.ToString());
-                tempItem.SubItems.Add(dataReader["test_status"].ToString());
                 listViewTests.Items.Add(tempItem);
             }
             dataReader.Close();
@@ -170,7 +172,15 @@ namespace TeachSystem
                     sql.Parameters.AddWithValue("@grade", resultGrade);
                     dbConnection.Open();
                     sql.ExecuteNonQuery();
+                    string updateAccess;
+                    updateAccess = "UPDATE list_test_access SET dead_line_date = @date, test_status = 0  WHERE l_stud_id = @studId AND l_test_id = @test_id";
+                    sql = new SqlCommand(updateAccess, dbConnection);
+                    sql.Parameters.AddWithValue("@studId", currentStudent.studentId);
+                    sql.Parameters.AddWithValue("@date", DBNull.Value);
+                    sql.Parameters.AddWithValue("@test_id", choosedTest.testId);
+                    sql.ExecuteNonQuery();
                     dbConnection.Close();
+                    listViewTests.Items.Clear();
                 }
             }
         }

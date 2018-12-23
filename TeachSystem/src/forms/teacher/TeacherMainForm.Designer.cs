@@ -41,7 +41,6 @@
             this.colTestName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTeacher = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colReleaseDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colTestAviable = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.addUserFuncGroup = new System.Windows.Forms.GroupBox();
             this.addTeacherButton = new System.Windows.Forms.Button();
             this.addTeachGroupButton = new System.Windows.Forms.Button();
@@ -49,6 +48,7 @@
             this.aboutProgramButton = new System.Windows.Forms.Button();
             this.createReportFuncGroup = new System.Windows.Forms.GroupBox();
             this.createReportButton = new System.Windows.Forms.Button();
+            this.appointTestButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.userImageBox)).BeginInit();
             this.addUserFuncGroup.SuspendLayout();
             this.createReportFuncGroup.SuspendLayout();
@@ -117,7 +117,7 @@
             // updateTestListButton
             // 
             this.updateTestListButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateTestListButton.Location = new System.Drawing.Point(516, 382);
+            this.updateTestListButton.Location = new System.Drawing.Point(537, 503);
             this.updateTestListButton.Name = "updateTestListButton";
             this.updateTestListButton.Size = new System.Drawing.Size(119, 30);
             this.updateTestListButton.TabIndex = 7;
@@ -128,9 +128,9 @@
             // addTestButton
             // 
             this.addTestButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addTestButton.Location = new System.Drawing.Point(641, 382);
+            this.addTestButton.Location = new System.Drawing.Point(662, 503);
             this.addTestButton.Name = "addTestButton";
-            this.addTestButton.Size = new System.Drawing.Size(119, 30);
+            this.addTestButton.Size = new System.Drawing.Size(98, 30);
             this.addTestButton.TabIndex = 8;
             this.addTestButton.Text = "Создать тест";
             this.addTestButton.UseVisualStyleBackColor = true;
@@ -141,14 +141,13 @@
             this.listViewTests.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colTestName,
             this.colTeacher,
-            this.colReleaseDate,
-            this.colTestAviable});
+            this.colReleaseDate});
             this.listViewTests.FullRowSelect = true;
             this.listViewTests.GridLines = true;
             this.listViewTests.Location = new System.Drawing.Point(346, 50);
             this.listViewTests.MultiSelect = false;
             this.listViewTests.Name = "listViewTests";
-            this.listViewTests.Size = new System.Drawing.Size(414, 326);
+            this.listViewTests.Size = new System.Drawing.Size(414, 447);
             this.listViewTests.TabIndex = 9;
             this.listViewTests.UseCompatibleStateImageBehavior = false;
             this.listViewTests.View = System.Windows.Forms.View.Details;
@@ -156,7 +155,7 @@
             // colTestName
             // 
             this.colTestName.Text = "Название";
-            this.colTestName.Width = 139;
+            this.colTestName.Width = 215;
             // 
             // colTeacher
             // 
@@ -168,11 +167,6 @@
             this.colReleaseDate.Text = "Дата создания";
             this.colReleaseDate.Width = 93;
             // 
-            // colTestAviable
-            // 
-            this.colTestAviable.Text = "Доступность";
-            this.colTestAviable.Width = 79;
-            // 
             // addUserFuncGroup
             // 
             this.addUserFuncGroup.BackColor = System.Drawing.Color.MediumTurquoise;
@@ -182,7 +176,7 @@
             this.addUserFuncGroup.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.addUserFuncGroup.Location = new System.Drawing.Point(30, 160);
             this.addUserFuncGroup.Name = "addUserFuncGroup";
-            this.addUserFuncGroup.Size = new System.Drawing.Size(289, 115);
+            this.addUserFuncGroup.Size = new System.Drawing.Size(289, 138);
             this.addUserFuncGroup.TabIndex = 10;
             this.addUserFuncGroup.TabStop = false;
             this.addUserFuncGroup.Text = "Добавить пользователей";
@@ -190,7 +184,7 @@
             // addTeacherButton
             // 
             this.addTeacherButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addTeacherButton.Location = new System.Drawing.Point(146, 44);
+            this.addTeacherButton.Location = new System.Drawing.Point(146, 58);
             this.addTeacherButton.Name = "addTeacherButton";
             this.addTeacherButton.Size = new System.Drawing.Size(133, 45);
             this.addTeacherButton.TabIndex = 13;
@@ -201,7 +195,7 @@
             // addTeachGroupButton
             // 
             this.addTeachGroupButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addTeachGroupButton.Location = new System.Drawing.Point(7, 69);
+            this.addTeachGroupButton.Location = new System.Drawing.Point(7, 91);
             this.addTeachGroupButton.Name = "addTeachGroupButton";
             this.addTeachGroupButton.Size = new System.Drawing.Size(133, 30);
             this.addTeachGroupButton.TabIndex = 12;
@@ -212,7 +206,7 @@
             // addStudentButton
             // 
             this.addStudentButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addStudentButton.Location = new System.Drawing.Point(7, 33);
+            this.addStudentButton.Location = new System.Drawing.Point(7, 44);
             this.addStudentButton.Name = "addStudentButton";
             this.addStudentButton.Size = new System.Drawing.Size(133, 30);
             this.addStudentButton.TabIndex = 11;
@@ -223,9 +217,9 @@
             // aboutProgramButton
             // 
             this.aboutProgramButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.aboutProgramButton.Location = new System.Drawing.Point(346, 382);
+            this.aboutProgramButton.Location = new System.Drawing.Point(29, 503);
             this.aboutProgramButton.Name = "aboutProgramButton";
-            this.aboutProgramButton.Size = new System.Drawing.Size(119, 30);
+            this.aboutProgramButton.Size = new System.Drawing.Size(99, 30);
             this.aboutProgramButton.TabIndex = 11;
             this.aboutProgramButton.Text = "О программе";
             this.aboutProgramButton.UseVisualStyleBackColor = true;
@@ -236,9 +230,9 @@
             this.createReportFuncGroup.BackColor = System.Drawing.Color.MediumTurquoise;
             this.createReportFuncGroup.Controls.Add(this.createReportButton);
             this.createReportFuncGroup.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.createReportFuncGroup.Location = new System.Drawing.Point(30, 297);
+            this.createReportFuncGroup.Location = new System.Drawing.Point(29, 304);
             this.createReportFuncGroup.Name = "createReportFuncGroup";
-            this.createReportFuncGroup.Size = new System.Drawing.Size(290, 115);
+            this.createReportFuncGroup.Size = new System.Drawing.Size(290, 193);
             this.createReportFuncGroup.TabIndex = 14;
             this.createReportFuncGroup.TabStop = false;
             this.createReportFuncGroup.Text = "Отчеты";
@@ -246,20 +240,32 @@
             // createReportButton
             // 
             this.createReportButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.createReportButton.Location = new System.Drawing.Point(75, 50);
+            this.createReportButton.Location = new System.Drawing.Point(44, 51);
             this.createReportButton.Name = "createReportButton";
-            this.createReportButton.Size = new System.Drawing.Size(133, 29);
+            this.createReportButton.Size = new System.Drawing.Size(215, 29);
             this.createReportButton.TabIndex = 13;
-            this.createReportButton.Text = "Создание отчета";
+            this.createReportButton.Text = "Создание отчета успеваемости";
             this.createReportButton.UseVisualStyleBackColor = true;
             this.createReportButton.Click += new System.EventHandler(this.createReportButton_Click);
+            // 
+            // appointTestButton
+            // 
+            this.appointTestButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.appointTestButton.Location = new System.Drawing.Point(423, 503);
+            this.appointTestButton.Name = "appointTestButton";
+            this.appointTestButton.Size = new System.Drawing.Size(108, 30);
+            this.appointTestButton.TabIndex = 16;
+            this.appointTestButton.Text = "Назначить тест";
+            this.appointTestButton.UseVisualStyleBackColor = true;
+            this.appointTestButton.Click += new System.EventHandler(this.appointTestButton_Click);
             // 
             // TeacherMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(784, 431);
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.appointTestButton);
             this.Controls.Add(this.createReportFuncGroup);
             this.Controls.Add(this.aboutProgramButton);
             this.Controls.Add(this.addUserFuncGroup);
@@ -274,8 +280,8 @@
             this.Controls.Add(this.teachFNLable);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(800, 470);
-            this.MinimumSize = new System.Drawing.Size(800, 470);
+            this.MaximumSize = new System.Drawing.Size(800, 600);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "TeacherMainForm";
             this.Text = "TeachSystem";
             this.Load += new System.EventHandler(this.TeacherMainForm_Load);
@@ -301,7 +307,6 @@
         private System.Windows.Forms.ColumnHeader colTestName;
         private System.Windows.Forms.ColumnHeader colTeacher;
         private System.Windows.Forms.ColumnHeader colReleaseDate;
-        private System.Windows.Forms.ColumnHeader colTestAviable;
         private System.Windows.Forms.GroupBox addUserFuncGroup;
         private System.Windows.Forms.Button addTeacherButton;
         private System.Windows.Forms.Button addTeachGroupButton;
@@ -309,5 +314,6 @@
         private System.Windows.Forms.Button aboutProgramButton;
         private System.Windows.Forms.GroupBox createReportFuncGroup;
         private System.Windows.Forms.Button createReportButton;
+        private System.Windows.Forms.Button appointTestButton;
     }
 }

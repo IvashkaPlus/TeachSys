@@ -42,7 +42,6 @@
             this.colTestName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTeacher = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colReleaseDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colTestAviable = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.testListLable = new System.Windows.Forms.Label();
             this.createReportFuncGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImageBox)).BeginInit();
@@ -149,8 +148,7 @@
             this.listViewTests.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colTestName,
             this.colTeacher,
-            this.colReleaseDate,
-            this.colTestAviable});
+            this.colReleaseDate});
             this.listViewTests.FullRowSelect = true;
             this.listViewTests.GridLines = true;
             this.listViewTests.Location = new System.Drawing.Point(346, 50);
@@ -164,22 +162,17 @@
             // colTestName
             // 
             this.colTestName.Text = "Название";
-            this.colTestName.Width = 139;
+            this.colTestName.Width = 200;
             // 
             // colTeacher
             // 
             this.colTeacher.Text = "Преподаватель";
-            this.colTeacher.Width = 98;
+            this.colTeacher.Width = 115;
             // 
             // colReleaseDate
             // 
-            this.colReleaseDate.Text = "Дата создания";
+            this.colReleaseDate.Text = "Срок сдачи";
             this.colReleaseDate.Width = 93;
-            // 
-            // colTestAviable
-            // 
-            this.colTestAviable.Text = "Доступность";
-            this.colTestAviable.Width = 79;
             // 
             // testListLable
             // 
@@ -235,7 +228,6 @@
         private System.Windows.Forms.ColumnHeader colTestName;
         private System.Windows.Forms.ColumnHeader colTeacher;
         private System.Windows.Forms.ColumnHeader colReleaseDate;
-        private System.Windows.Forms.ColumnHeader colTestAviable;
         private System.Windows.Forms.Label testListLable;
     }
 }
