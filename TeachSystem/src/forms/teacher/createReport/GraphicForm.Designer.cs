@@ -81,6 +81,7 @@
             this.closeReportForm.TabIndex = 17;
             this.closeReportForm.Text = "Закрыть";
             this.closeReportForm.UseVisualStyleBackColor = true;
+            this.closeReportForm.Click += new System.EventHandler(this.closeReportForm_Click);
             // 
             // titleLable
             // 

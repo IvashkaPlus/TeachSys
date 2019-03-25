@@ -46,7 +46,13 @@ namespace TeachSystem
             string TeacherPassword = PasswordBox.Text.ToString();
             string sub = subBox.Text.ToString();
             int subId = 0;
-            foreach(KeyValuePair<int, string> subInfo in subjectsList)
+            if (TeacherId == "" || TeacherName == "" || TeacherLast_Name == "" || TeacherPatronymic == "" || TeacherSci_degree == "" 
+                || TeacherPhone_number == "" || TeacherEmail == "" || TeacherPassword == "" || sub == "")
+            {
+                MessageBox.Show("Некорректный ввод");
+                return;
+            }
+            foreach (KeyValuePair<int, string> subInfo in subjectsList)
             {
                 if(subInfo.Value.IndexOf(sub) != -1)
                 {

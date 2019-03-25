@@ -122,7 +122,10 @@ namespace TeachSystem
             createTestForm = new CreateTest(subjectsList);
             Dictionary<int, string> groups = new Dictionary<int, string>();
             List<string> studentIds = new List<string>();
-            createTestForm.ShowDialog();
+            if(createTestForm.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
             tempTest = createTestForm.test;
             tempTest.teacherId = currentTeacher.teacherId;
             StringBuilder tempDate = new StringBuilder(DateTime.Now.ToString());

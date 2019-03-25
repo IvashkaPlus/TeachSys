@@ -35,7 +35,11 @@ namespace TeachSystem
             string StudentEmail = EmailBox.Text.ToString();
             string StudentPassword = PasswordBox.Text.ToString();
             string StudentGroup = GroupBox.Text.ToString();
-
+            if(StudentId == "" || StudentName == "" || StudentLast_Name == "" || StudentEmail == "" || StudentPassword == "" || StudentGroup == "")
+            {
+                MessageBox.Show("Некорректный ввод");
+                return;
+            }
             string groupCheck = "SELECT t_group_id FROM teach_groups WHERE name = \'" + StudentGroup + "\'";
 
             SqlCommand sql = new SqlCommand(groupCheck, dbConnection);

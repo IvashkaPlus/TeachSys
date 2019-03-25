@@ -20,7 +20,8 @@ namespace TeachSystem
 
         private void createQuestionButton_Click(object sender, EventArgs e)
         {
-            question = new Question(titBox.Text);
+            if(titBox.Text != "")
+                question = new Question(titBox.Text);
         }
     }
 }

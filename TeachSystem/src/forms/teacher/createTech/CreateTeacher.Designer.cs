@@ -62,7 +62,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 32);
+            this.label2.Location = new System.Drawing.Point(12, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 1;
@@ -126,56 +126,57 @@
             // 
             this.LoginBox.Location = new System.Drawing.Point(126, 32);
             this.LoginBox.Name = "LoginBox";
-            this.LoginBox.Size = new System.Drawing.Size(174, 20);
+            this.LoginBox.Size = new System.Drawing.Size(231, 20);
             this.LoginBox.TabIndex = 8;
             // 
             // NameBox
             // 
             this.NameBox.Location = new System.Drawing.Point(126, 98);
             this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(174, 20);
+            this.NameBox.Size = new System.Drawing.Size(231, 20);
             this.NameBox.TabIndex = 9;
             // 
             // LastNameBox
             // 
             this.LastNameBox.Location = new System.Drawing.Point(126, 135);
             this.LastNameBox.Name = "LastNameBox";
-            this.LastNameBox.Size = new System.Drawing.Size(174, 20);
+            this.LastNameBox.Size = new System.Drawing.Size(231, 20);
             this.LastNameBox.TabIndex = 10;
             // 
             // PatronymicBox
             // 
             this.PatronymicBox.Location = new System.Drawing.Point(126, 175);
             this.PatronymicBox.Name = "PatronymicBox";
-            this.PatronymicBox.Size = new System.Drawing.Size(174, 20);
+            this.PatronymicBox.Size = new System.Drawing.Size(231, 20);
             this.PatronymicBox.TabIndex = 11;
             // 
             // SciDegreeBox
             // 
             this.SciDegreeBox.Location = new System.Drawing.Point(126, 216);
             this.SciDegreeBox.Name = "SciDegreeBox";
-            this.SciDegreeBox.Size = new System.Drawing.Size(174, 20);
+            this.SciDegreeBox.Size = new System.Drawing.Size(231, 20);
             this.SciDegreeBox.TabIndex = 12;
             // 
             // PhoneNumberBox
             // 
-            this.PhoneNumberBox.Location = new System.Drawing.Point(126, 256);
+            this.PhoneNumberBox.Location = new System.Drawing.Point(126, 260);
             this.PhoneNumberBox.Name = "PhoneNumberBox";
-            this.PhoneNumberBox.Size = new System.Drawing.Size(174, 20);
+            this.PhoneNumberBox.Size = new System.Drawing.Size(231, 20);
             this.PhoneNumberBox.TabIndex = 13;
             // 
             // EmailBox
             // 
-            this.EmailBox.Location = new System.Drawing.Point(126, 298);
+            this.EmailBox.Location = new System.Drawing.Point(126, 305);
             this.EmailBox.Name = "EmailBox";
-            this.EmailBox.Size = new System.Drawing.Size(174, 20);
+            this.EmailBox.Size = new System.Drawing.Size(231, 20);
             this.EmailBox.TabIndex = 14;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(172, 375);
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.button1.Location = new System.Drawing.Point(271, 392);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 29);
+            this.button1.Size = new System.Drawing.Size(86, 29);
             this.button1.TabIndex = 15;
             this.button1.Text = "Создать";
             this.button1.UseVisualStyleBackColor = true;
@@ -192,16 +193,16 @@
             // 
             // PasswordBox
             // 
-            this.PasswordBox.Location = new System.Drawing.Point(126, 62);
+            this.PasswordBox.Location = new System.Drawing.Point(126, 66);
             this.PasswordBox.Name = "PasswordBox";
-            this.PasswordBox.Size = new System.Drawing.Size(174, 20);
+            this.PasswordBox.Size = new System.Drawing.Size(231, 20);
             this.PasswordBox.TabIndex = 18;
             // 
             // subBox
             // 
-            this.subBox.Location = new System.Drawing.Point(126, 334);
+            this.subBox.Location = new System.Drawing.Point(126, 341);
             this.subBox.Name = "subBox";
-            this.subBox.Size = new System.Drawing.Size(174, 20);
+            this.subBox.Size = new System.Drawing.Size(231, 20);
             this.subBox.TabIndex = 20;
             // 
             // label9
@@ -217,7 +218,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 416);
+            this.ClientSize = new System.Drawing.Size(377, 433);
             this.Controls.Add(this.subBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.PasswordBox);
@@ -239,7 +240,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CreateTeacher";
-            this.Text = "CreateTeacher";
+            this.Text = "TeachSystem - Добавление преподавателя";
             this.ResumeLayout(false);
             this.PerformLayout();
 

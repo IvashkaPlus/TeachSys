@@ -53,6 +53,7 @@
             // 
             // createTestButton
             // 
+            this.createTestButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.createTestButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.createTestButton.Location = new System.Drawing.Point(668, 409);
             this.createTestButton.Name = "createTestButton";

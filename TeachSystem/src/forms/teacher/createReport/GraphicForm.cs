@@ -32,10 +32,19 @@ namespace TeachSystem {
             foreach(ReportTeach rep in reports)
                 if (subTitleBox.Text == rep.subjectTitle)
                     avgGradeChart.Series[0].Points.AddXY(idealTitleList.IndexOf(rep.groupName), rep.avgGrade);
+            if(avgGradeChart.Series[0].Points.Count == 0)
+            {
+                return;
+            }
             for(int i = 0; i < idealTitleList.Count; i++)
             {
                 avgGradeChart.Series[0].Points[i].Label = idealTitleList[i];
             }
+        }
+
+        private void closeReportForm_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -48,9 +48,9 @@
             this.titleLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.titleLable.Location = new System.Drawing.Point(12, 9);
             this.titleLable.Name = "titleLable";
-            this.titleLable.Size = new System.Drawing.Size(201, 30);
+            this.titleLable.Size = new System.Drawing.Size(187, 30);
             this.titleLable.TabIndex = 9;
-            this.titleLable.Text = "Назначение теста -";
+            this.titleLable.Text = "Назначение теста";
             // 
             // listViewAccess
             // 

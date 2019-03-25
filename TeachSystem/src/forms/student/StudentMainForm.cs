@@ -35,16 +35,14 @@ namespace TeachSystem
             string testListFinder = "select DISTINCT test.title, teach.last_name, acc.dead_line_date " +
                 "from tests test JOIN teachers teach on test.teach_id = teach.teacher_id " +
                 "JOIN list_test_access acc on test.test_id = acc.l_test_id " +
-                "where acc.l_stud_id  = \'" + currentStudent.studentId + "\'";
+                "where acc.l_stud_id  = \'" + currentStudent.studentId + "\' AND acc.test_status = 1";
 
             SqlCommand sql = new SqlCommand(testListFinder, dbConnection);
             SqlDataReader dataReader = sql.ExecuteReader();
-            if (dataReader.RecordsAffected == -1){
-                return;
-            }
             while (dataReader.Read())
             {
-                StringBuilder rDate = new StringBuilder(dataReader["dead_line_date"].ToString(), 0, 10, 10);
+                string tempDate = dataReader["dead_line_date"].ToString();
+                StringBuilder rDate = new StringBuilder(tempDate, 0, 10, 10);
                 ListViewItem tempItem = new ListViewItem(dataReader["title"].ToString());
                 tempItem.SubItems.Add(dataReader["last_name"].ToString());
                 tempItem.SubItems.Add(rDate.ToString());

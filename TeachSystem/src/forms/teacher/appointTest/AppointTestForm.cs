@@ -140,7 +140,7 @@ namespace TeachSystem
                     updateAccess = "UPDATE list_test_access SET dead_line_date = @date, test_status = 1  WHERE l_stud_id = @studId AND l_test_id = @testId";
                     sql = new SqlCommand(updateAccess, dbConnection);
                     sql.Parameters.AddWithValue("@studId", studentIds[studId]);
-                    sql.Parameters.AddWithValue("@teseId", testId);
+                    sql.Parameters.AddWithValue("@testId", testId);
                     sql.Parameters.AddWithValue("@date", dlDate);
                     sql.ExecuteNonQuery();
                 }
